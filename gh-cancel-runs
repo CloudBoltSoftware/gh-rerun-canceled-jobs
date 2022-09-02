@@ -12,7 +12,7 @@ fi
 
 # Using tee to disable pager
 ids=($(gh api repos/$repo/actions/runs --jq \
-            '.workflow_runs[] | select([.status] | inside(["in_progress", "queued"])) | .id' \
+            '.workflow_runs[] | select([.status] | inside(["queued"])) | .id' \
     | tee))
 
 if [ ${#ids[@]} -eq 0 ]; then
