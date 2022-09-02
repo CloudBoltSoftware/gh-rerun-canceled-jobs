@@ -1,16 +1,16 @@
-## gh-cancel-runs
+## gh-cancel-queued-runs
 
 A [Github CLI](https://github.com/cli/cli) extension, that cancels all the
-scheduled jobs from GHA for a particular repository, at once.
+queued jobs from GHA for a particular repository, at once.
 
 ## Installation
 
 ```
-gh extension install skshetry/gh-cancel-runs
+gh extension install Ewiththebowtie/gh-cancel-queued-runs
 ```
 
 ## Usage
 
 ```
-gh cancel-runs [<owner>/<repo>]
+gh cancel-queued-runs [<owner>/<repo>]
 ```
