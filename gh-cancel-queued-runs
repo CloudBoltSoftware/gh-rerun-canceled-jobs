@@ -11,7 +11,7 @@ fi
 # modified to be used as a gh extension to avoid specifying tokens
 
 # Using tee to disable pager
-ids=($(gh api repos/$repo/actions/runs --jq \
+ids=($(gh api repos/$repo/actions/runs --paginate --jq \
             '.workflow_runs[] | select([.status] | inside(["queued"])) | .id' \
     | tee))
 
@@ -24,5 +24,6 @@ for id in $ids
 do
     echo "Cancelling $id"
     gh api -X POST repos/$repo/actions/runs/$id/cancel | tee
+    sleep 5
 done
 echo
