@@ -13,5 +13,4 @@ fi
 gh api repos/$repo/actions/runs \
     --paginate \
     --jq '.workflow_runs[] | select([.status] | inside(["cancelled"])) | .id' |
-    xargs -t -I {} gh run rerun {}
-
+    xargs -t -I{} gh run rerun {}
